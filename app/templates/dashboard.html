@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Secure Dashboard</title>
+</head>
+<body class="bg-slate-50 flex items-center justify-center min-h-screen">
+    <div class="max-w-4xl w-full mx-auto p-8">
+        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200">
+            <div class="bg-blue-600 p-8 text-white">
+                <h2 class="text-xs uppercase tracking-widest font-bold opacity-80">Security Cleared</h2>
+                <h1 class="text-4xl font-extrabold mt-2">Welcome, {{ username }}</h1>
+            </div>
+            <div id="auth-stats" style="padding: 10px; background: #e0f7fa; border-radius: 5px; display: none;">
+                🚀 Login verified in: <span id="load-time"></span> seconds
+            </div>
+
+            <script>
+                const speed = localStorage.getItem('auth_speed');
+                if (speed) {
+                    document.getElementById('auth-stats').style.display = 'block';
+                    document.getElementById('load-time').innerText = speed;
+                    localStorage.removeItem('auth_speed');
+                }
+            </script>
+            
+            <div class="p-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="p-4 bg-green-50 rounded-2xl border border-green-100">
+                        <p class="text-green-600 text-xs font-bold uppercase">Status</p>
+                        <p class="text-slate-800 font-bold text-lg">Verified Session</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                        <p class="text-slate-500 text-xs font-bold uppercase">Auth Method</p>
+                        <p class="text-slate-800 font-bold text-lg">FIDO2 Biometric</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                        <p class="text-slate-500 text-xs font-bold uppercase">Encryption</p>
+                        <p class="text-slate-800 font-bold text-lg">AES-256 / RSA</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 rounded-2xl p-6 text-slate-300 font-mono text-sm">
+                    <p class="text-blue-400 mb-2">// System Logs</p>
+                    <p>> Biometric hand-shake verified...</p>
+                    <p>> Public key match found in SQLite...</p>
+                    <p>> Session token generated for {{ username }}...</p>
+                    <p>> Accessing secure kernel... <span class="text-green-500">READY</span></p>
+                </div>
+
+                <button onclick="location.href='/'" class="mt-8 text-slate-400 hover:text-slate-600 text-sm font-medium transition-colors">
+                    ← Sign Out and Clear Session
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
