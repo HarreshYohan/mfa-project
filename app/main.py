@@ -31,9 +31,9 @@ templates = Jinja2Templates(directory="app/templates")
 challenge_store = {}
 
 # Configuration
-RP_ID = "localhost"
+RP_ID = "mfa-demo.onrender.com"
 RP_NAME = "Enterprise MFA System"
-ORIGIN = "http://localhost:8000"
+ORIGIN = "https://mfa-demo.onrender.com"
 
 # --- Dependency ---
 def get_db():
