@@ -31,7 +31,7 @@ templates = Jinja2Templates(directory="app/templates")
 challenge_store = {}
 
 # Configuration
-RP_ID = "mfa-project-azy8.onrender.com
+RP_ID = "mfa-project-azy8.onrender.com"
 RP_NAME = "Enterprise MFA System"
 ORIGIN = "https://mfa-project-azy8.onrender.com"
 
