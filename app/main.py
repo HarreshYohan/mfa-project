@@ -33,7 +33,7 @@ challenge_store = {}
 # Configuration
 RP_ID = "mfa-demo.onrender.com"
 RP_NAME = "Enterprise MFA System"
-ORIGIN = "https://mfa-demo.onrender.com"
+ORIGIN = "https://mfa-project-azy8.onrender.com"
 
 # --- Dependency ---
 def get_db():
